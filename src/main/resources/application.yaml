@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: bees-admin-api
+  datasource:
+    url: jdbc:mysql://localhost:3306/db_admin
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    validationQuery: SELECT 1
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    show-sql: true
+jwt:
+  secret: '!@#$FDGSDFGSGSGSGSHSHSHSSHGFFDSGSFGSSGHSDFSDFSFSFSFSDFSFSFSF'
+  expiration_time: 3600000
