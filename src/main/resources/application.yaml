@@ -17,3 +17,8 @@ spring:
 jwt:
   secret: '!@#$FDGSDFGSGSGSGSHSHSHSSHGFFDSGSFGSSGHSDFSDFSFSFSFSDFSFSFSF'
   expiration_time: 3600000
+bezkoder:
+  app:
+    jwtSecret: ======================BezKoder=Spring===========================
+    jwtExpirationMs: 86400000
+    jwtCookieName: bezkoder

@@ -9,6 +9,7 @@ import java.util.Collection;
 @Getter
 public class CustomUserDetails extends User {
 
+    private final Long id;
     private final String firstName;
     private final String lastName;
     private final String email;
@@ -24,6 +25,7 @@ public class CustomUserDetails extends User {
                 builder.credentialsNonExpired,
                 builder.authorities
         );
+        this.id = builder.id;
         this.firstName = builder.firstName;
         this.lastName = builder.lastName;
         this.email = builder.email;
@@ -31,6 +33,7 @@ public class CustomUserDetails extends User {
     }
 
     public static class Builder {
+        public Long id;
         private String firstName;
         private String lastName;
         private String email;
@@ -42,6 +45,11 @@ public class CustomUserDetails extends User {
         private Boolean credentialsNonExpired;
         private Boolean enabled;
         private Collection<? extends GrantedAuthority> authorities;
+
+        public Builder withId(Long id){
+            this.id = id;
+            return this;
+        }
 
         public Builder withFirstName(String firstName){
             this.firstName = firstName;
