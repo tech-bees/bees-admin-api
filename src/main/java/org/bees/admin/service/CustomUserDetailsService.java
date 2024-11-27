@@ -30,10 +30,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         UserEntity user = userRepository.findByEmail(username);
         if(user != null){
             customUser = new CustomUserDetails.Builder()
-                    .withFirstName(user.getFirstName())
-                    .withLastName(user.getLastName())
                     .withEmail(user.getEmail())
-                    .withMobile(user.getMobile())
                     .withEnabled(user.getEnabled())
                     .withUsername(user.getUsername())
                     .withPassword(user.getPassword())

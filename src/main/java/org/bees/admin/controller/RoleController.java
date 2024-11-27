@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Tag(name = "Roles", description = "Roles management api")
 @RestController
-@RequestMapping("/admin/roles")
+@RequestMapping("/api/roles")
 public class RoleController extends GenericController<RoleEntity> {
 
     public RoleController(GenericRepository<RoleEntity> genericRepository) {

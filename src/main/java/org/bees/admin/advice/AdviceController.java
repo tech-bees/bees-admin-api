@@ -3,6 +3,7 @@ package org.bees.admin.advice;
 import io.jsonwebtoken.ExpiredJwtException;
 import jakarta.validation.constraints.NotNull;
 import org.bees.admin.dto.error.ErrorResponse;
+import org.bees.admin.exception.JwtException;
 import org.spring.generic.advice.GenericAdviceController;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,8 +24,14 @@ public class AdviceController extends GenericAdviceController {
         return new ResponseEntity<>(error,HttpStatus.UNAUTHORIZED);
     }
 
+    @ExceptionHandler(JwtException.class)
+    public ResponseEntity<?> handleJwtException(JwtException ex){
+        ErrorResponse error = new ErrorResponse(new Date(), "", String.valueOf(HttpStatus.UNAUTHORIZED.value()),HttpStatus.UNAUTHORIZED.getReasonPhrase(), ex.getMessage());
+        return new ResponseEntity<>(error,HttpStatus.UNAUTHORIZED);
+    }
+
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<Object> getServerExceptionHandler(@NotNull Exception exception) {
+    public ResponseEntity<Object> getServerExceptionHandler(Exception exception) {
         if (exception instanceof ExpiredJwtException) {
             ErrorResponse error = new ErrorResponse(new Date(), "","Token expired",HttpStatus.UNAUTHORIZED.getReasonPhrase(), "Token expired");
             return new ResponseEntity<>(error,HttpStatus.UNAUTHORIZED);

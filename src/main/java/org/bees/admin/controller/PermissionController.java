@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Tag(name = "Permissions", description = "Permission management api")
 @RestController
-@RequestMapping("/admin/permissions")
+@RequestMapping("/api/permissions")
 public class PermissionController extends GenericController<PermissionEntity> {
 
     @Autowired

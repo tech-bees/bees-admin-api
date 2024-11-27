@@ -18,15 +18,9 @@ import java.util.Set;
 @Table(name = "users")
 public class UserEntity  extends BaseEntity {
 
-    @NotEmpty(message = "{user.firstName.NotEmpty}")
-    private String firstName;
-    @NotEmpty(message = "{user.lastName.NotEmpty}")
-    private String lastName;
     @NotEmpty(message = "{user.email.NotEmpty}")
     @Email(message = "{user.email.Email}")
     private String email;
-    @NotEmpty(message = "{user.mobile.NotEmpty}")
-    private String mobile;
     @NotEmpty(message = "{user.username.NotEmpty}")
     private String username;
     @NotEmpty(message = "{user.password.NotEmpty}")
